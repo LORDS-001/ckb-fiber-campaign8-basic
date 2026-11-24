@@ -101,13 +101,13 @@ The node logs in the console also showed the route built for `100000000` shannon
 
 ## Appendix: Friction log
 
-| Time (WAT) | Step | What happened | Resolution |
-|---|---|---|---|
-| Mon 9:52–10:03 pm | Setup: start nodes | Both WASM nodes failed with `Cannot resolve cell dep for type id`; each retry failed on a different contract ID | Turned Wi-Fi off and on; both nodes started instantly (~11 min lost) |
-| Mon ~10:04–10:08 pm | Setup: faucet | Copying the address before clicking **Get Testnet CKB** meant the paste failed on the faucet | Clicked the button first, then copied; 10,000 Testnet CKB per node |
-| Mon ~10:21 pm | Setup: channels | Unsure whether reloading during channel opening was safe; network issues stopped the channels that night | Restarted the nodes Tuesday; both reached `CHANNEL_READY` at ~1:19 pm |
-| Tue ~1:28 pm | Transfer | Offer delivered to Buyer A automatically; unsure whether I'd missed a step | Confirmed and continued |
-| Tue 1:19–1:33 pm | Steps 2–5 | Encrypt, invoice, transfer, pay and decrypt completed with no issues | ~14 minutes on a stable connection |
+| Step | What happened | Resolution |
+|---|---|---|
+| Setup: start nodes | Both WASM nodes failed with `Cannot resolve cell dep for type id`; each retry failed on a different contract ID | Turned Wi-Fi off and on; both nodes started instantly (~11 min lost) |
+| Setup: faucet | Copying the address before clicking **Get Testnet CKB** meant the paste failed on the faucet | Clicked the button first, then copied; 10,000 Testnet CKB per node |
+| Setup: channels | Unsure whether reloading during channel opening was safe; network issues stopped the channels that night | Restarted the nodes Tuesday; both reached `CHANNEL_READY` at ~1:19 pm |
+| Transfer | Offer delivered to Buyer A automatically; unsure whether I'd missed a step | Confirmed and continued |
+| Steps 2–5 | Encrypt, invoice, transfer, pay and decrypt completed with no issues | ~14 minutes on a stable connection |
 
 ![Node error at startup](<screenshots/Screenshot (260).png>)
 
@@ -117,7 +117,3 @@ The node logs in the console also showed the route built for `100000000` shannon
 3. **A clear "Offer delivered to Buyer A ✓" confirmation** at the Transfer step.
 4. **A note on whether reloading is safe** while channels are opening.
 5. **Relabel "Seller's result"** on the decrypt step as "Buyer A's decrypted report."
-
----
-
-*All activity used CKB Testnet funds only. No private keys, seed phrases or browser-storage data are included in this repository.*
