@@ -95,7 +95,41 @@ The node logs in the console also showed the route built for `100000000` shannon
 
 ## Personal reflection
 
-<!-- Paste your final reviewed reflection here -->
+### How did it feel to have the explanations alongside each interactive step?
+
+I have participated in all the previous Build on CKB campaigns, so I've used both formats, and I prefer having the explanation beside each step. Having the explanation right next to each action meant I understood what I was doing as I did it.
+
+The explanation that the AES key is also the payment preimage was the moment it clicked for me. I'd just watched my own text turn into ciphertext, and right beside it the page explained that the same secret locks the invoice. So paying and receiving the key are one action, with no server in between. Reading that separately from the demo, I don't think I'd have connected the two.
+
+The one place an explanation was missing was when my node failed. The raw script error explained nothing, and the cause was just my connection.
+
+### What surprised you or stood out?
+
+It surprised me that Seller C had to send 5 CKB to Bottle B to be able to receive more. In normal payments, receiving costs nothing, but in a channel, room to receive is something you create.
+
+I also checked the key myself. After decrypting, I ran SHA-256 on the revealed preimage in the browser console, and it matched the invoice payment hash exactly (…f24b4709). So the key I received was the exact one the invoice was locked to.
+
+### Was there a step where you were unsure what to do next?
+
+At Step 3 (Transfer), the offer was delivered to Buyer A automatically, and I wasn't sure if I'd missed a step, so I had to ask. It felt like I'd skipped something. A clear "Offer delivered to Buyer A ✓" message would help.
+
+I was also unsure while opening the channels. I didn't know if reloading would break the channel or lose funds, and I was worried about losing the 500 CKB.
+
+### If you ran into a problem, what did you expect, what happened, and how did you resolve it?
+
+I expected both nodes to start. Instead, both showed a long "Cannot resolve cell dep" error I couldn't understand, and retrying gave a different contract ID each time. After about 11 minutes, turning my Wi-Fi off and on fixed it instantly. At first I felt confused and frustrated, and when the fix was that simple I felt relieved, but annoyed it took so long. The error message didn't tell me it was just a connection problem.
+
+Network issues also stopped my channels from opening that night. I only finished the next day after restarting the nodes, and then both channels reached CHANNEL_READY.
+
+A smaller issue: if I copied the funding address before clicking Get Testnet CKB, the paste didn't work on the faucet. I had to go back and copy again, twice, once per node. It felt minor but annoying. Pre-filling the address would fix it.
+
+### What would you like to build using this pay-to-unlock flow?
+
+The "What does payment guarantee?" quiz confirmed what I suspected: paying proves the key matches the ciphertext, not that the report is accurate. That shaped my idea: a DevOps delivery flow where a freelancer sells a script or config file, with a preview before payment, a listing commitment so every buyer gets the same advertised file, and a proof-of-purchase receipt in case of disputes, as the tutorial suggests.
+
+### If you could change one thing about the tutorial, what would it be?
+
+Replace the raw node error with a plain message like "Couldn't reach CKB Testnet, check your connection" and a Retry button. It cost me about 11 minutes at the very first step, the point where a new user is most likely to give up.
 
 ---
 
