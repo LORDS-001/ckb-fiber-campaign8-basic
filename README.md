@@ -1,10 +1,6 @@
-# Build on CKB: Campaign #8 — Unlock Encrypted Data with a Fiber Payment (Basic)
+# Unlock Encrypted Data with a Fiber Payment (Basic)
 
-**Participant:** L.O.R.D.S · Lagos, Nigeria
-**Completed:** Tuesday, 24 November 2026
 **Tutorial:** [Unlock Encrypted Data with a Fiber Payment](https://fiber.world/docs/build/encrypted-data-payment)
-**Network:** CKB Testnet (Testnet CKB only)
-**Environment:** Chrome on Windows, browser-based Fiber WASM nodes
 
 ---
 
@@ -78,7 +74,7 @@ Seller C revealed the preimage to claim the payment, Fiber returned it to Buyer 
 
 ---
 
-## ⭐ Bonus: independent key verification
+## Bonus: independent key verification
 
 The tutorial states that the payment hash is the SHA-256 fingerprint of the preimage. I checked this myself in the browser console using the Web Crypto API:
 
