@@ -24,7 +24,7 @@ I completed the pay-to-unlock flow with two browser-based Fiber nodes. Seller C 
 
 Buyer A and Seller C each opened a channel with Bottle B (500 CKB per channel: 100 reserved for settlement, 400 spendable). Both channels passed all six opening stages and reached `CHANNEL_READY`.
 
-![Both channels at CHANNEL_READY](screenshots/1-setup.png)
+![Both channels at CHANNEL_READY](<screenshots/Screenshot (262).png>)
 
 | Channel | Balances after opening |
 |---|---|
@@ -39,9 +39,9 @@ I also tried the optional liquidity demo, sending 5 CKB from Seller C to Bottle 
 
 As Seller C, I encrypted my own sample text. The browser generated a fresh 256-bit AES key and a 96-bit IV, and the AES key became the payment preimage of a 1 CKB invoice.
 
-![Original text and ciphertext](screenshots/step2-original-text.png)
+![Original text and ciphertext](<screenshots/Screenshot (289).png>)
 
-![Invoice created with payment hash](screenshots/invoice-created.png)
+![Invoice created with payment hash](<screenshots/Screenshot (292).png>)
 
 ---
 
@@ -49,7 +49,7 @@ As Seller C, I encrypted my own sample text. The browser generated a fresh 256-b
 
 The encrypted offer (ciphertext, IV, invoice, payment hash and last hop) was delivered to Buyer A. Selecting **Decrypt without key** was rejected: AES-GCM refused a substitute key.
 
-![Encrypted offer and Decryption rejected](screenshots/2-before-payment.png)
+![Encrypted offer and Decryption rejected](<screenshots/Screenshot (295).png>)
 
 ---
 
@@ -57,7 +57,7 @@ The encrypted offer (ciphertext, IV, invoice, payment hash and last hop) was del
 
 Buyer A paid the invoice through Bottle B. Seller C received 1 CKB; Bottle B earned a 0.001 CKB routing fee. Before paying, Buyer A's app validated the invoice's network, amount and payment hash against the offer. The payment hash matches the invoice from Step 2.
 
-![Payment completed with payment hash](screenshots/3-after-payment.png)
+![Payment completed with payment hash](<screenshots/Screenshot (298).png>)
 
 | Channel | Balance change |
 |---|---|
@@ -70,7 +70,7 @@ Buyer A paid the invoice through Bottle B. Seller C received 1 CKB; Bottle B ear
 
 Seller C revealed the preimage to claim the payment, Fiber returned it to Buyer A, and Buyer A used it as the AES key. The decrypted result matches my original sample text from Step 2 exactly.
 
-![Decrypted result matching the original](screenshots/4-after-decryption.png)
+![Decrypted result matching the original](<screenshots/Screenshot (300).png>)
 
 ---
 
@@ -87,7 +87,7 @@ console.log([...new Uint8Array(hash)].map(b => b.toString(16).padStart(2, "0")).
 
 **Output:** `1115a70202218b56ef0d80ed2bb04c4c2f1cd9b909e94304699efd26f24b4709`, an exact match with the invoice payment hash.
 
-![SHA-256 of the preimage equals the payment hash](screenshots/bonus-key-verification.png)
+![SHA-256 of the preimage equals the payment hash](<screenshots/Screenshot (303).png>)
 
 The node logs in the console also showed the route built for `100000000` shannons (1 CKB) with a maximum fee of `500000` shannons (0.005 CKB).
 
@@ -109,7 +109,7 @@ The node logs in the console also showed the route built for `100000000` shannon
 | Tue ~1:28 pm | Transfer | Offer delivered to Buyer A automatically; unsure whether I'd missed a step | Confirmed and continued |
 | Tue 1:19–1:33 pm | Steps 2–5 | Encrypt, invoice, transfer, pay and decrypt completed with no issues | ~14 minutes on a stable connection |
 
-![Node error at startup](screenshots/node-error.png)
+![Node error at startup](<screenshots/Screenshot (260).png>)
 
 ### Suggested improvements
 1. **Plain-language node error with a Retry button** when the node can't reach CKB Testnet.
